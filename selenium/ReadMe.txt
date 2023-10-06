@@ -5,7 +5,7 @@ src
 │	│     └── com
 │	│ 			└── fnb
 │	│           	 ├── pages //Prepare data test, test methods
-│	│          		 ├── scenario_tests //Write scenario test scripts
+│	│           	 ├── scenario_tests //Write scenario test scripts
 │	│           	 ├── utils //Shared custom method, function
 │	│           	 └── webdriver
 │	│                  		├──────── linux //Using webdriver in linux
@@ -20,4 +20,4 @@ src
 │
 ├── config.json //Config used for the system
 │
-├── pom.xml
+├── pom.xml //Install libary for the system
