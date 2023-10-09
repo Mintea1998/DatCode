@@ -33,9 +33,9 @@ public class Config {
         JsonObject webConfig = config.get("web").getAsJsonObject();
         String env = webConfig.get("env").getAsString();
         System.out.println("-----env-----: " + env);
-        if (env == "prod") {
+        if (env.equals("prod")) {
             env = webConfig.get("prod").getAsString();
-        } else if (env == "stag") {
+        } else if (env.equals("stag")) {
             env = webConfig.get("stag").getAsString();
         } else {
             env = webConfig.get("dev").getAsString();
