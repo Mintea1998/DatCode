@@ -1,7 +1,6 @@
 package com.fnb.utils;
 
 import java.io.File;
-import java.io.FileReader;
 import java.io.IOException;
 
 import org.apache.commons.io.FileUtils;
@@ -18,47 +17,29 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
-import com.google.gson.JsonParser;
+import com.fnb.utils.Config.ConfigObject;
 
 public class FnbLibrary {
     private static WebDriver driver;
     private WebDriverWait wait;
+    ConfigObject config = Config.configObject();
 
     public static String getOsName() {
-        String os = System.getProperty("os.name").toLowerCase();
+        String osName = System.getProperty("os.name").toLowerCase();
+        System.out.println("osName >>>>>> " + osName);
         // Windown: os = win, Linux: os = nix || nux, macOS: os = mac
-        return os;
+        return osName;
     }
 
     public FnbLibrary(String browser) {
-        String osName = getOsName();
-        if (osName == "") {
-            throw new IllegalArgumentException("Invalid os");
-        }
-
-        String webDriverPath = "";
-        if (osName.contains("win")) {
-            webDriverPath = "src/main/java/com/fnb/webdriver/windown/chrome/chromedriver.exe";
-        } else if (osName.contains("nix") || osName.contains("nux")) {
-            webDriverPath = "src/main/java/com/fnb/webdriver/linux/chrome/chromedriver";
-        } else if (osName.contains("mac")) {
-            webDriverPath = "";
-        }
-
-        if (webDriverPath == "") {
-            throw new IllegalArgumentException("Invalid webdriver path");
-        }
-
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         if (browser.equalsIgnoreCase("chrome")) {
-            System.setProperty("webdriver.chrome.driver", webDriverPath);
+            System.out.println("path webdriver >>>>>> " + config.getPathWebDriverChrome());
+            System.setProperty("webdriver.chrome.driver", config.getPathWebDriverChrome());
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {
             // System.setProperty("webdriver.gecko.driver",
@@ -120,7 +101,6 @@ public class FnbLibrary {
 
     public void takesScreenshot(String pathTestCase) throws IOException, InterruptedException {
         String currentDate = getCurrentDate();
-        ConfigObject config = configObject();
         String folderPath = config.getPathScreenshot() + "/" + currentDate;
         if (pathTestCase != "" || pathTestCase != null) {
             folderPath = folderPath + "/" + pathTestCase;
@@ -169,107 +149,5 @@ public class FnbLibrary {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd_MM_yyyy");
         String formattedDate = currentDate.format(formatter);
         return formattedDate;
-    }
-
-    public static JsonObject readConfigFile(String configFile) {
-        try {
-            // Read the configuration file
-            FileReader reader = new FileReader(configFile);
-            JsonObject config = JsonParser.parseReader(reader).getAsJsonObject();
-            reader.close();
-            return config;
-        } catch (IOException e) {
-            e.printStackTrace();
-            return null;
-        }
-    }
-
-    public static ConfigObject configObject() {
-        // Read the configuration file
-        String configFile = "config.json";
-        JsonObject config = readConfigFile(configFile);
-        // Create a Gson instance
-        Gson gson = new Gson();
-
-        // Create a JsonObject representing the object
-        JsonObject jsonObject = new JsonObject();
-        String env = config.get("env").getAsString();
-        if (env == "prod") {
-            env = config.get("prod").getAsString();
-        } else if (env == "stag") {
-            env = config.get("stag").getAsString();
-        } else {
-            env = config.get("dev").getAsString();
-        }
-        jsonObject.addProperty("env", config.get("env").getAsString());
-        jsonObject.addProperty("timeOut", config.get("timeout").getAsNumber());
-        jsonObject.addProperty("browser", config.get("browser").getAsString());
-        jsonObject.addProperty("urlHome", env + config.get("route").getAsJsonObject().get("home").getAsString());
-        jsonObject.addProperty("urlLogin", env + config.get("route").getAsJsonObject().get("login").getAsString());
-        jsonObject.addProperty("pathScreenshot", config.get("path").getAsJsonObject().get("screenshot").getAsString());
-
-        // Deserialize the JsonObject to a MyObject instance
-        ConfigObject configObject = gson.fromJson(jsonObject, ConfigObject.class);
-
-        // Return the object
-        return configObject;
-    }
-
-    public class ConfigObject {
-        private String env;
-        private String browser;
-        private Integer timeOut;
-        private String urlHome;
-        private String urlLogin;
-        private String pathScreenshot;
-
-        public String getEnv() {
-            return env;
-        }
-
-        public void setEnvDev(String env) {
-            this.env = env;
-        }
-
-        public String getBrowser() {
-            return browser;
-        }
-
-        public void setBrowser(String browser) {
-            this.browser = browser;
-        }
-
-        public Integer getTimeOut() {
-            return timeOut;
-        }
-
-        public void setTimeOut(Integer timeOut) {
-            this.timeOut = timeOut;
-        }
-
-        public String getUrlHome() {
-            return urlHome;
-        }
-
-        public void setUrlHome(String urlHome) {
-            this.urlHome = urlHome;
-        }
-
-        public String getUrlLogin() {
-            return urlLogin;
-        }
-
-        public void setUrlLogin(String urlLogin) {
-            this.urlLogin = urlLogin;
-        }
-
-        public String getPathScreenshot() {
-            return pathScreenshot;
-        }
-
-        public void setPathScreenshot(String pathScreenshot) {
-            this.pathScreenshot = pathScreenshot;
-        }
-
     }
 }

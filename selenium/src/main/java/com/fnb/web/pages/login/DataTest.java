@@ -1,4 +1,4 @@
-package com.fnb.pages.login;
+package com.fnb.web.pages.login;
 
 public class DataTest {
 

@@ -1,4 +1,4 @@
-package com.fnb.scenario_tests;
+package com.fnb.web.scenario_tests;
 
 import java.io.IOException;
 
@@ -6,10 +6,11 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
-import com.fnb.pages.login.LoginPage;
-import com.fnb.pages.login.DataTest;
+import com.fnb.web.pages.login.LoginPage;
+import com.fnb.web.pages.login.DataTest;
+import com.fnb.utils.Config;
+import com.fnb.utils.Config.ConfigObject;
 import com.fnb.utils.FnbLibrary;
-import com.fnb.utils.FnbLibrary.ConfigObject;
 
 public class Login {
     private FnbLibrary fnbLibrary;
@@ -20,7 +21,7 @@ public class Login {
 
     @BeforeTest
     public void beforeTest() throws IOException, InterruptedException {
-        ConfigObject config = FnbLibrary.configObject();
+        ConfigObject config = Config.configObject();
         URL_HOMEPAGE = config.getUrlHome();
         TIME_OUT = config.getTimeOut();
         // Setup WebDriver

@@ -1,4 +1,4 @@
-package com.fnb.pages.login;
+package com.fnb.web.pages.login;
 
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -6,7 +6,8 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.fnb.utils.FnbLibrary;
-import com.fnb.utils.FnbLibrary.ConfigObject;
+import com.fnb.utils.Config;
+import com.fnb.utils.Config.ConfigObject;
 
 public class LoginPage {
     private FnbLibrary fnbLibrary;
@@ -31,7 +32,7 @@ public class LoginPage {
 
     public LoginPage(FnbLibrary library) {
         fnbLibrary = library;
-        ConfigObject config = FnbLibrary.configObject();
+        ConfigObject config = Config.configObject();
         String urlLogin = config.getUrlLogin();
         fnbLibrary.openUrl(urlLogin);
         fnbLibrary.waitUrl(urlLogin);
