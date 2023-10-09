@@ -29,7 +29,6 @@ public class FnbLibrary {
 
     public static String getOsName() {
         String osName = System.getProperty("os.name").toLowerCase();
-        System.out.println("osName >>>>>> " + osName);
         // Windown: os = win, Linux: os = nix || nux, macOS: os = mac
         return osName;
     }
@@ -38,7 +37,7 @@ public class FnbLibrary {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         if (browser.equalsIgnoreCase("chrome")) {
-            System.out.println("path webdriver >>>>>> " + config.getPathWebDriverChrome());
+            System.out.println("-----pathWebdriver-----: " + config.getPathWebDriverChrome());
             System.setProperty("webdriver.chrome.driver", config.getPathWebDriverChrome());
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("firefox")) {
@@ -138,7 +137,7 @@ public class FnbLibrary {
                     deleteFilesInSubfolders(file);
                 } else if (file.isFile()) {
                     file.delete();
-                    System.out.println("Deleted: " + file.getAbsolutePath());
+                    System.out.println("-----Deleted-----: " + file.getAbsolutePath());
                 }
             }
         }

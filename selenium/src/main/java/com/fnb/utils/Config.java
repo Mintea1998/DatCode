@@ -32,6 +32,7 @@ public class Config {
         JsonObject jsonObject = new JsonObject();
         JsonObject webConfig = config.get("web").getAsJsonObject();
         String env = webConfig.get("env").getAsString();
+        System.out.println("-----env-----: " + env);
         if (env == "prod") {
             env = webConfig.get("prod").getAsString();
         } else if (env == "stag") {
@@ -51,12 +52,12 @@ public class Config {
 
         String osName = FnbLibrary.getOsName();
         if (osName.contains("win")) {
-            System.out.println("win >>>>>> ");
+            System.out.println("-----osName-----: " + osName);
             jsonObject.addProperty("pathWebDriverChrome",
                     webConfig.get("web_driver_path").getAsJsonObject().get("win").getAsJsonObject().get("chrome")
                             .getAsString());
         } else if (osName.contains("nix") || osName.contains("nux")) {
-            System.out.println("linux >>>>>> ");
+            System.out.println("-----osName-----: " + osName);
             jsonObject.addProperty("pathWebDriverChrome",
                     webConfig.get("web_driver_path").getAsJsonObject().get("linux").getAsJsonObject().get("chrome")
                             .getAsString());

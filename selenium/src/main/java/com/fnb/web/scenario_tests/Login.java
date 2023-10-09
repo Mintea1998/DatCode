@@ -79,7 +79,6 @@ public class Login {
         fnbLibrary.takesScreenshot(DataTest.SCREENSHOT_PATH + "4");
         loginPage.clickLoginButton();
         errorMessage = loginPage.getErrorMessageWrongUserNamePassword();
-        System.out.println("errorMessage => " + errorMessage);
         assert errorMessage.equals(DataTest.ERROR_WRONG_USERNAME_PASSWORD);
         fnbLibrary.takesScreenshot(DataTest.SCREENSHOT_PATH + "4");
     }
