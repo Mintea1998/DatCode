@@ -1,4 +1,4 @@
-package com.fnb.test_ng.web;
+package com.fnb.testng.web;
 
 import java.io.File;
 import java.io.IOException;

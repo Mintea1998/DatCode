@@ -20,7 +20,7 @@ src
 │   └── java
 │       └── com
 │		    └── fnb //Project name
-│				└── test_ng //Test all scenario tests 
+│				└── testng //Test all scenario tests 
 │				    ├── web
 │				    └── mobile
 │
