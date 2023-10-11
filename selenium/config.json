@@ -1,0 +1,31 @@
+{
+    "web" :{
+      "dev": "https://qa31-admin.beecowdeal.vn/",
+      "stag": "https://stag-admin.beecowdeal.vn/",
+      "prod": "https://fnb.gosell.vn/",
+      "env": "stag",
+      "timeout": 10,
+      "browser": "chrome",
+      "path": {
+        "screenshot": "screenshot"
+      },
+      "route": {
+          "login": "login",
+          "home": "home",
+          "registerAccount": "register-account",
+          "productManagement": "product-management"
+      },
+      "web_driver_path":  {
+        "linux": {
+          "chrome": "src/main/java/com/fnb/web/webdriver/linux/chrome/chromedriver"
+        },
+        "win": {
+          "chrome": "src/main/java/com/fnb/web/webdriver/windown/chrome/chromedriver.exe"
+        }
+      }
+    },
+    "mobile": {
+      "android": {},
+      "iso": {}
+    }
+  }
