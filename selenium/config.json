@@ -17,7 +17,7 @@
       },
       "web_driver_path":  {
         "linux": {
-          "chrome": "src/main/java/com/fnb/web/webdriver/linux/chrome/chromedriver"
+          "chrome": "/usr/local/bin/chromedriver-linux64/chromedriver"
         },
         "win": {
           "chrome": "src/main/java/com/fnb/web/webdriver/windown/chrome/chromedriver.exe"
