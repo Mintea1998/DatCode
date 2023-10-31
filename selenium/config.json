@@ -4,7 +4,7 @@
       "stag": "https://stag-admin.beecowdeal.vn/",
       "prod": "https://fnb.gosell.vn/",
       "env": "stag",
-      "timeout": 10,
+      "timeout": 20,
       "browser": "chrome",
       "path": {
         "screenshot": "screenshot"
