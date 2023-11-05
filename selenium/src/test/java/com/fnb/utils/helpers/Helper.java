@@ -1,6 +1,6 @@
 package com.fnb.utils.helpers;
 
-import com.fnb.web.admin.setup.BaseSetup;
+import com.fnb.web.setup.BaseSetup;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

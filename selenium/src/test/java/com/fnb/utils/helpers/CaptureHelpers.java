@@ -10,7 +10,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import static com.fnb.web.admin.setup.BaseSetup.driver;
+import static com.fnb.web.setup.BaseSetup.driver;
 
 public class CaptureHelpers {
 

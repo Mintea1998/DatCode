@@ -1,6 +1,6 @@
 package com.fnb.utils.helpers;
 
-import com.fnb.web.admin.setup.BaseSetup;
+import com.fnb.web.setup.BaseSetup;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
