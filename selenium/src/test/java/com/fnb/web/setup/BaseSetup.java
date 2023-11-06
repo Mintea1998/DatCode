@@ -1,9 +1,8 @@
 package com.fnb.web.setup;
 
-import com.fnb.web.drivermanager.DriverFactory;
-import com.fnb.utils.helpers.Helper;
 import com.fnb.utils.helpers.JsonReader;
-import com.fnb.web.pages.admin.HomePage;
+import com.fnb.drivermanager.DriverFactory;
+import com.fnb.web.admin.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,7 +13,7 @@ import java.io.IOException;
 import java.time.Duration;
 
 public class BaseSetup {
-    public static Helper helper;
+    public static com.fnb.utils.helpers.Helper helper;
     public static WebDriver driver;
     public static WebDriverWait wait;
     public static Actions actions;
@@ -29,7 +28,7 @@ public class BaseSetup {
 
     public void setupDriver() throws AWTException {
         String browserType = JsonReader.configObject().getBrowser();
-        WebDriver driver = DriverFactory.initDriver(browserType);
+        driver = DriverFactory.initDriver(browserType);
         wait = new WebDriverWait(driver, Duration.ofSeconds(30));
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
@@ -37,7 +36,8 @@ public class BaseSetup {
         actions = new Actions(driver);
         softAssert = new SoftAssert();
         robot = new Robot();
-        helper = new Helper(driver);
+
+//        helper = new Helper(driver);
     }
 
     public static String getOsName() {

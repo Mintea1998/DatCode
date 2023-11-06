@@ -1,6 +1,6 @@
 package com.fnb.web.setup;
 
-import com.fnb.web.pages.admin.HomePage;
+import com.fnb.web.admin.pages.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterTest;
