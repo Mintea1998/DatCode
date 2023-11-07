@@ -1,8 +1,8 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-/screenshot/
-/target/
-/test-output/
-/screenshot/
-/.idea/
+.idea/
+test-output/
+screenshot/
+logs/
+target/
