@@ -4,15 +4,15 @@
     <test name="test for admin">
         <parameter name="platform" value="admin"/>
         <classes>
-            <class name="com.fnb.web.admin.tests.login.LoginScenarioTest"/>
-            <class name="com.fnb.web.admin.tests.register.RegisterScenarioTest"/>
+            <class name="com.fnb.web.admin.scenario_test.login.LoginScenarioTest"/>
+            <class name="com.fnb.web.admin.scenario_test.register.RegisterScenarioTest"/>
         </classes>
     </test>
     <test name="test for pos">
         <parameter name="platform" value="pos"/>
         <classes>
-            <class name="com.fnb.web.pos.tests.login.LoginPosScenarioTest"/>
-            <class name="com.fnb.web.pos.tests.register.RegisterPosScenarioTest"/>
+            <class name="com.fnb.web.pos.scenario_test.login.LoginPosScenarioTest"/>
+            <class name="com.fnb.web.pos.scenario_test.register.RegisterPosScenarioTest"/>
         </classes>
     </test>
 </suite>

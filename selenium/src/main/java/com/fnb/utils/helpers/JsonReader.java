@@ -23,7 +23,7 @@ public class JsonReader {
 
     public static ConfigObject configObject(String platform) {
         // Read the configuration file
-        String configFile = "src/test/resources/config.json";
+        String configFile = "resources/config.json";
         JsonObject config = readConfigFile(configFile);
         // Create a Gson instance
         Gson gson = new Gson();

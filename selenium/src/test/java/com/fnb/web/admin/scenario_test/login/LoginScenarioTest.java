@@ -1,4 +1,4 @@
-package com.fnb.web.admin.tests.login;
+package com.fnb.web.admin.scenario_test.login;
 
 import com.fnb.utils.helpers.Log;
 

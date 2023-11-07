@@ -1,7 +1,6 @@
-package com.fnb.web.pos.tests.login;
+package com.fnb.web.pos.scenario_test.login;
 
 import com.fnb.utils.helpers.Log;
-import com.fnb.web.admin.pages.login.LoginPage;
 import com.fnb.web.pos.pages.login.LoginPosPage;
 import com.fnb.web.setup.BaseTest;
 import org.testng.annotations.BeforeClass;
