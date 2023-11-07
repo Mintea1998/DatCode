@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Failed suite [All Test Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="5" name="test for a admin(failed)">
+    <parameter name="flatForm" value="admin"/>
+    <classes>
+      <class name="com.fnb.web.admin.tests.login.LoginScenarioTest">
+        <methods>
+          <include name="endSession"/>
+          <include name="navigateToPage"/>
+          <include name="verifyTitleExist"/>
+          <include name="initTestSetup"/>
+          <include name="beforeSuite"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.fnb.web.admin.tests.login.LoginScenarioTest -->
+    </classes>
+  </test> <!-- test for a admin(failed) -->
+  <test thread-count="5" name="test for a pos(failed)">
+    <parameter name="flatForm" value="pos"/>
+    <classes>
+      <class name="com.fnb.web.admin.tests.login.LoginScenarioTest">
+        <methods>
+          <include name="endSession"/>
+          <include name="navigateToPage"/>
+          <include name="verifyTitleExist"/>
+          <include name="beforeSuite"/>
+          <include name="initTestSetup"/>
+          <include name="tearDown"/>
+        </methods>
+      </class> <!-- com.fnb.web.admin.tests.login.LoginScenarioTest -->
+    </classes>
+  </test> <!-- test for a pos(failed) -->
+</suite> <!-- Failed suite [All Test Suite] -->

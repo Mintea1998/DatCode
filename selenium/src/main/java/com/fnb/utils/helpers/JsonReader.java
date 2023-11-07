@@ -21,7 +21,7 @@ public class JsonReader {
         }
     }
 
-    public static ConfigObject configObject() {
+    public static ConfigObject configObject(String platform) {
         // Read the configuration file
         String configFile = "src/test/resources/config.json";
         JsonObject config = readConfigFile(configFile);
@@ -30,7 +30,8 @@ public class JsonReader {
 
         // Create a JsonObject representing the object
         JsonObject jsonObject = new JsonObject();
-        JsonObject webConfig = config.get("web").getAsJsonObject();
+//        JsonObject webConfig = config.get("admin").getAsJsonObject();
+        JsonObject webConfig = config.get(platform).getAsJsonObject();
         String env = webConfig.get("env").getAsString();
         System.out.println("-----env-----: " + env);
         if (env.equals("prod")) {

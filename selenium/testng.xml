@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
+<suite name="All Test Suite" >
     <test name="test for admin">
+        <parameter name="platform" value="admin"/>
         <classes>
-            <class name="com.fnb.web.admin.tests.login.LoginTest"/>
+            <class name="com.fnb.web.admin.tests.login.LoginScenarioTest"/>
+            <class name="com.fnb.web.admin.tests.register.RegisterScenarioTest"/>
         </classes>
     </test>
-    <!--    <test name="test for Store Web">-->
-    <!--        <classes>-->
-    <!--            <class name="com.fnb.web.tests.admin.login.LoginTest"/>-->
-    <!--        </classes>-->
-    <!--    </test>-->
+    <test name="test for pos">
+        <parameter name="platform" value="pos"/>
+        <classes>
+            <class name="com.fnb.web.pos.tests.login.LoginPosScenarioTest"/>
+            <class name="com.fnb.web.pos.tests.register.RegisterPosScenarioTest"/>
+        </classes>
+    </test>
 </suite>
